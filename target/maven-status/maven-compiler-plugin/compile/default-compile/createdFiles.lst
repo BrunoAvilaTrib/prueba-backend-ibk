@@ -1,0 +1,10 @@
+com\backend\prueba\exception\CurrencyChangeException.class
+com\backend\prueba\entity\CurrencyChange.class
+com\backend\prueba\PruebaApplication$1.class
+com\backend\prueba\repository\CurrencyChangeRepository.class
+com\backend\prueba\PruebaApplication.class
+com\backend\prueba\response\CurrencyChangeResponse.class
+com\backend\prueba\service\CurrencyChangeService.class
+com\backend\prueba\controller\CurrencyChangeController.class
+com\backend\prueba\request\CurrencyChangeRequest.class
+com\backend\prueba\request\ValueChangeRequest.class
