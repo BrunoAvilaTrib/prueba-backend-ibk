@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -68,6 +69,12 @@ public class CurrencyChangeService {
 
     }
 
+    public void  insertOneCurrencyValue(CurrencyChange request){
+        List<CurrencyChange> currencyChanges = new ArrayList<>();
+        currencyChanges.add(request);
+        currencyChangeRepository.saveAll(currencyChanges);
+    }
+
 
 
     public CurrencyChangeResponse aplyCurrencyChange(CurrencyChangeRequest request) {
@@ -92,6 +99,7 @@ public class CurrencyChangeService {
     }
 
     public List<CurrencyChange> getList() {
+
         return currencyChangeRepository.findAll();
     }
 

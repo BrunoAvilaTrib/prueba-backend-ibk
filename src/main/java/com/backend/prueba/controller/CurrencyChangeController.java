@@ -6,6 +6,7 @@ import com.backend.prueba.request.ValueChangeRequest;
 import com.backend.prueba.response.CurrencyChangeResponse;
 import com.backend.prueba.service.CurrencyChangeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +37,13 @@ public class CurrencyChangeController {
     public void addCurrencyValues() {
 
         currencyChangeService.insertData();
+
+    }
+
+    @PostMapping(value = "/addCurrencyValues")
+    public ResponseEntity <Void> addValue(@RequestBody CurrencyChange request){
+        currencyChangeService.insertOneCurrencyValue(request);
+        return ResponseEntity.ok().build();
 
     }
 
