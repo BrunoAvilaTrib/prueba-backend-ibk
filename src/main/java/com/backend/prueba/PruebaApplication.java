@@ -2,6 +2,10 @@ package com.backend.prueba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class PruebaApplication {
@@ -10,4 +14,17 @@ public class PruebaApplication {
 		SpringApplication.run(PruebaApplication.class, args);
 	}
 
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedOrigins("*")
+						.allowCredentials(false)
+						.allowedMethods(HttpMethod.GET.toString(), HttpMethod.PUT.toString(), HttpMethod.DELETE.toString(),
+								HttpMethod.POST.toString());
+			}
+		};
+	}
 }
