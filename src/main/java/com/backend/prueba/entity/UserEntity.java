@@ -22,8 +22,8 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user" , uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"userName"})
+@Table(name = "users" , uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"username"})
 })
 public class UserEntity  implements UserDetails{
 
@@ -31,7 +31,7 @@ public class UserEntity  implements UserDetails{
         @GeneratedValue
         Integer id;
         @Column(nullable = false)
-        String userName;
+        String username;
         String password;
         String firstname;
         String telephone;
@@ -43,7 +43,7 @@ public class UserEntity  implements UserDetails{
 
         @Override
         public String getUsername() {
-                return null;
+                return username;
         }
 
         @Override

@@ -24,7 +24,7 @@ import java.util.Map;
 @Service
 public class JwtService {
 
-    private static final String SECRET_KEY = "32434536546566243556456636556";
+    private static final String SECRET_KEY = "32434536546566243556456636556234425423433535454234434343234";
 
     public String getToken(UserDetails user) {
         return getToken(new HashMap<>() , user);

@@ -29,7 +29,7 @@ public class Authservice {
 
     public AuthResponse register(RegisterRequest request) {
         UserEntity user = UserEntity.builder()
-                .userName(request.getUserName())
+                .username(request.getUsername())
                 .password(request.getPassword())
                 .firstname(request.getFirstname())
                 .telephone(request.getTelephone())
