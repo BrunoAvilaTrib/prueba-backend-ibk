@@ -25,6 +25,7 @@ import java.security.AuthProvider;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     @Autowired
@@ -42,7 +43,7 @@ public class SecurityConfig {
                         .disable())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                        .requestMatchers("/auth/**", "/h2-console/**").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated()
                         )
                         .sessionManagement(sessionManager ->

@@ -1,6 +1,6 @@
 package com.backend.prueba.config;
 
-import com.backend.prueba.repository.UserRepository;
+import com.backend.prueba.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
     @Bean
     public AuthenticationManager authenticationManager (AuthenticationConfiguration config) throws Exception {
@@ -47,7 +47,7 @@ public class ApplicationConfig {
     }
     @Bean
     public UserDetailsService userDetailService() {
-        return username -> userRepository.findByUsername(username)
+        return username -> usersRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
