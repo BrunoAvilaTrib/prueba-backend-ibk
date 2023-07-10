@@ -41,17 +41,22 @@ public class SecurityConfig {
                 .csrf(csrf ->
                         csrf
                         .disable())
-                .authorizeHttpRequests(authRequest ->
-                        authRequest
-                        .requestMatchers("/auth/**").permitAll()
-                        .anyRequest().authenticated()
-                        )
+
                         .sessionManagement(sessionManager ->
                                 sessionManager
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authRequest ->
+                        authRequest
+                                .requestMatchers("/auth/**").permitAll()
+                                .anyRequest().authenticated()
+                )
                         .authenticationProvider(authenticationProvider)
                         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                        .build();
+                .headers(headers -> headers.frameOptions(frameOption -> frameOption.sameOrigin()))
+                .build();
     }
 
+
+
 }
+

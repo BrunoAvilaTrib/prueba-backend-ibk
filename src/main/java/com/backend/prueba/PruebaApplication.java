@@ -14,17 +14,4 @@ public class PruebaApplication {
 		SpringApplication.run(PruebaApplication.class, args);
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**")
-						.allowedOrigins("*")
-						.allowCredentials(false)
-						.allowedMethods(HttpMethod.GET.toString(), HttpMethod.PUT.toString(), HttpMethod.DELETE.toString(),
-								HttpMethod.POST.toString());
-			}
-		};
-	}
 }

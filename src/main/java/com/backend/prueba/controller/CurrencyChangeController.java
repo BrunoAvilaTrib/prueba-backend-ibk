@@ -19,6 +19,7 @@ import java.util.List;
  * @Description: description details
  */
 
+@CrossOrigin
 @RestController
 @RequestMapping("/exchangeHouse")
 public class CurrencyChangeController {
