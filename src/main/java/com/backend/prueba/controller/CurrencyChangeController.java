@@ -19,7 +19,7 @@ import java.util.List;
  * @Description: description details
  */
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4600")
 @RestController
 @RequestMapping("/exchangeHouse")
 public class CurrencyChangeController {
